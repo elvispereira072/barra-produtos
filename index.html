@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Produtos</title>
+    <script>
+        // Função para buscar produtos
+        function searchProducts() {
+            var input = document.getElementById('searchInput').value.toLowerCase(); // Pega o valor digitado
+            var products = document.getElementsByClassName('product'); // Todos os produtos
+
+            // Itera sobre todos os produtos
+            for (var i = 0; i < products.length; i++) {
+                var productName = products[i].getAttribute('data-name').toLowerCase(); // Nome do produto
+                if (productName.includes(input)) {
+                    products[i].style.display = ''; // Exibe o produto
+                } else {
+                    products[i].style.display = 'none'; // Oculta o produto
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .header input {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .product {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        .product h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .product p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Seção de Cabeçalho com Barra de Pesquisa -->
+    <header class="header">
+        <h1>Loja de Produtos</h1>
+        <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Digite o nome do produto...">
+    </header>
+
+    <!-- Seção de Produtos -->
+    <section id="produtos" class="py-16 bg-white">
+        <div class="container">
+            <div class="product" data-name="Cesta de Pão">
+                <img src="assets/produto1.jpg" alt="Cesta de Pão">
+                <h3>Cesta de Pão</h3>
+                <p>R$ 25,00</p>
+            </div>
+
+            <div class="product" data-name="Pote Decorativo">
+                <img src="assets/produto2.jpg" alt="Pote Decorativo">
+                <h3>Pote Decorativo</h3>
+                <p>R$ 35,00</p>
+            </div>
+
+            <div class="product" data-name="Vaso de Cerâmica">
+                <img src="assets/produto3.jpg" alt="Vaso de Cerâmica">
+                <h3>Vaso de Cerâmica</h3>
+                <p>R$ 45,00</p>
+            </div>
+
+            <div class="product" data-name="Almofada Artesanal">
+                <img src="assets/produto4.jpg" alt="Almofada Artesanal">
+                <h3>Almofada Artesanal</h3>
+                <p>R$ 50,00</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
